@@ -80,7 +80,7 @@ Desenvolver uma API RESTful utilizando **Node.js com Express** e **banco de dado
 
 1.  Clone o repositório do GitHub:
     ```bash
-    git clone [https://github.com/AmaralSza/RetroGamesAPI.git](https://github.com/AmaralSza/RetroGamesAPI.git)
+    git clone https://github.com/AmaralSza/RetroGamesAPI.git
     ```
 
 2.  Navegue até a pasta do projeto:
