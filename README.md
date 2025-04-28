@@ -115,4 +115,3 @@ Para iniciar a API em modo de desenvolvimento (com recarregamento automático us
 
 ```bash
 npm run dev
-    ```
