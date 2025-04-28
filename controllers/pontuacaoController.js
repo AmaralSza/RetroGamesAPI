@@ -22,15 +22,17 @@ exports.buscarTodos = (req, res) => {
 // Busca pontuacao pelo ID do jogo
 exports.buscarPontuacaoIdJogo = (req, res) => {
   pontuacaoModel.buscarPontuacaoIdJogo(req.params.idJogo, (err, results) => {
-    if (err) return res.status(500).send("Erro ao buscar jogo");
+    if (err) return res.status(500).send("Erro ao buscar ranking");
     if (!results || results.length === 0) return res.status(404).send("Nenhuma pontuação encontrada para este jogo");
 
-    const formattedResult = {
-      ...results[0],
-      data_registro: formatDate(results[0].data_registro),
-    };
+    const formattedResults = results.map(pontuacao => ({
+      nome_jogo: pontuacao.nome_jogo,
+      nome_jogador: pontuacao.nome_jogador,
+      pontuacao: pontuacao.pontuacao,
+      data_registro: formatDate(pontuacao.data_registro),
+    }));
 
-    res.json(formattedResult);
+    res.json(formattedResults);
   });
 };
 
