@@ -1,0 +1,211 @@
+@baseURL = http://localhost:3000
+
+############################################################## JOGOS
+### GET /jogos – listar todos os jogos.
+GET {{baseURL}}/jogos
+Content-Type: application/json
+
+### GET /jogos/:id – buscar jogo por ID.
+GET {{baseURL}}/jogos/3
+Content-Type: application/json
+
+### POST /jogos – cadastrar novo jogo.
+POST {{baseURL}}/jogos/inserir
+Content-Type: application/json
+
+{
+  "nome": "Super Mario World",
+  "plataforma": "Super Nintendo",
+  "ano_lancamento": 1990
+}
+
+### POST /jogos – cadastrar novo jogo. 1
+POST {{baseURL}}/jogos/inserir
+Content-Type: application/json
+
+{
+  "nome": "The Legend of Zelda: A Link to the Past",
+  "plataforma": "Super Nintendo",
+  "ano_lancamento": 1991
+}
+
+### POST /jogos – cadastrar novo jogo. 2
+POST {{baseURL}}/jogos/inserir
+Content-Type: application/json
+
+{
+  "nome": "Street Fighter II Turbo",
+  "plataforma": "Super Nintendo",
+  "ano_lancamento": 1993
+}
+
+### POST /jogos – cadastrar novo jogo. 3
+POST {{baseURL}}/jogos/inserir
+Content-Type: application/json
+
+{
+  "nome": "Sonic the Hedgehog 2",
+  "plataforma": "Mega Drive",
+  "ano_lancamento": 1992
+}
+
+### POST /jogos – cadastrar novo jogo. 4
+POST {{baseURL}}/jogos/inserir
+Content-Type: application/json
+
+{
+  "nome": "Streets of Rage 2",
+  "plataforma": "Mega Drive",
+  "ano_lancamento": 1992
+}
+
+### POST /jogos – cadastrar novo jogo. 5
+POST {{baseURL}}/jogos/inserir
+Content-Type: application/json
+
+{
+  "nome": "Gunstar Heroes",
+  "plataforma": "Mega Drive",
+  "ano_lancamento": 1993
+}
+
+### PUT /jogos/:id – atualizar um jogo existente.
+PUT {{baseURL}}/jogos/3
+Content-Type: application/json
+
+{
+  "nome": "Super Mario",
+  "plataforma": "Super Nintendo",
+  "ano_lancamento": 1998
+}
+
+### DELETE /jogos/:id – excluir um jogo.
+DELETE {{baseURL}}/jogos/2
+Content-Type: application/json
+
+
+############################################################## JOGADOR
+### GET /jogadores – listar todos os jogadores.
+GET {{baseURL}}/jogadores
+Content-Type: application/json
+
+### POST /jogadores – cadastrar um novo jogador. 1
+POST {{baseURL}}/jogadores
+Content-Type: application/json
+
+{
+  "nome": "William Amaral",
+  "nickname": "amaral1"
+}
+
+### POST /jogadores – cadastrar um novo jogador. 2
+POST {{baseURL}}/jogadores
+Content-Type: application/json
+
+{
+  "nome": "Joao Santos",
+  "nickname": "joaos"
+}
+
+### POST /jogadores – cadastrar um novo jogador. 3
+POST {{baseURL}}/jogadores
+Content-Type: application/json
+
+{
+  "nome": "Maria Silva",
+  "nickname": "marias"
+}
+
+### Buscar um jogador por ID
+GET {{baseURL}}/jogadores/id/3
+Content-Type: application/json
+
+### Buscar um jogador pelo nickname
+GET {{baseURL}}/jogadores/nickname/amaral1
+Content-Type: application/json
+
+### Atualizar jogador pelo ID
+PUT {{baseURL}}/jogadores/id/1
+Content-Type: application/json
+
+{
+  "nome": "William Amaral",
+  "nickname": "amarals"
+}
+
+### Atualizar jogador pelo nickname
+PUT {{baseURL}}/jogadores/nickname/amaral
+Content-Type: application/json
+
+{
+  "nome": "William Souza",
+  "nickname": "amaral"
+}
+
+### Deletar jogador pelo ID
+DELETE {{baseURL}}/jogadores/1
+Content-Type: application/json
+
+
+############################################################## PONTUACAO
+### POST/pontuacoes – cadastrar uma nova pontuação 
+### (deve verificar se o jogo e o jogador existem).
+
+### Testa pontuacao negativa.
+POST {{baseURL}}/rancking/inserir
+Content-Type: application/json
+
+{
+  "id_jogo": 4,
+  "id_jogador": 3,
+  "pontuacao": -102
+}
+
+### Testa jogador inexistente.
+POST {{baseURL}}/rancking/inserir
+Content-Type: application/json
+
+{
+  "id_jogo": 4,
+  "id_jogador": 35,
+  "pontuacao": 102
+}
+
+### Adiciona uma pontuacao.
+POST {{baseURL}}/rancking/inserir
+Content-Type: application/json
+
+{
+  "id_jogo": 5,
+  "id_jogador": 1,
+  "pontuacao": 202
+}
+
+### Adiciona uma pontuacao.
+POST {{baseURL}}/rancking/inserir
+Content-Type: application/json
+
+{
+  "id_jogo": 5,
+  "id_jogador": 3,
+  "pontuacao": 209
+}
+
+### GET/ranking/:idJogo – listar os 10 jogadores com as maiores pontuações 
+### para um jogo específico.
+GET {{baseURL}}/rancking/id/3
+Content-Type: application/json
+
+### Rota GET /jogos/populares – retornar os 3 jogos com maior número 
+### de pontuações registradas.
+GET {{baseURL}}/rancking/top
+Content-Type: application/json
+
+### Listar todos
+GET {{baseURL}}/rancking/pontuacao
+Content-Type: application/json
+
+
+
+
+
